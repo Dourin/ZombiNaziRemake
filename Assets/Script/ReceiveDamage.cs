@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.SceneManagement; 
+
 public class ReceiveDamage : MonoBehaviour
     {
     
@@ -11,8 +12,8 @@ public class ReceiveDamage : MonoBehaviour
     
     //Points de vie actuels
     public int hitPoint = 0;
+
     
- 
     
     private void Start()
     {
@@ -23,6 +24,8 @@ public class ReceiveDamage : MonoBehaviour
     
     private void Update()
     {
+
+        
         
         
        
