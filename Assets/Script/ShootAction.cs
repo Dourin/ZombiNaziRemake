@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
  
 public class ShootAction : MonoBehaviour
 {
@@ -24,23 +25,35 @@ public class ShootAction : MonoBehaviour
  
     //Détermine sur quel Layer on peut tirer
     public LayerMask layerMask;
+
+    // Effets sonores des armes
+    public AudioSource gunAS;
+    
+    // Effet sonore : tir de l'AK
+    public AudioClip shootAC; 
  
  
     // Start is called before the first frame update
     void Start()
     {
- 
+        
         //Référence de la caméra. GetComponentInParent<Camera> permet de chercher une Camera
         //dans ce GameObject et dans ses parents.
         fpsCam = GetComponentInParent<Camera>();
+
+        
+        // Reference des effets sonores des armes
+        gunAS = GetComponent<AudioSource>();
+        
     }
  
     // Update is called once per frame
     void Update()
     {
-        // Vérifie si le joueur a pressé le bouton pour faire feu (ex:bouton gauche souris)
+        // Vérifie si le joueur a pressé le bouton pour faire feu, rester appuyé permet de tirer de manière automatique (ex:bouton gauche souris)
         // Time.time > nextFire : vérifie si suffisament de temps s'est écoulé pour pouvoir tirer à nouveau
-        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        // SceneManager.GetActiveScene().name == "game_scene" : vérifie si le joueur est dans la scene du jeu (permet d'éviter que l'arme tire dans le menu principal)
+        if (Input.GetButton("Fire1") && Time.time > nextFire && SceneManager.GetActiveScene().name == "game_scene")
         {
             //Nouveau tir
  
@@ -50,6 +63,9 @@ public class ShootAction : MonoBehaviour
             nextFire = Time.time + fireRate;
  
             print(nextFire);
+            
+            // Joue une fois l'effet sonore attribué à shootAC
+            gunAS.PlayOneShot(shootAC);
  
             //On va lancer un rayon invisible qui simulera les balles du gun
  
