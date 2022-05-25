@@ -1,0 +1,13 @@
+sceneSetups:
+- path: Assets/menu.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
+- path: Assets/game_scene.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
+- path: Assets/gameover.unity
+  isLoaded: 0
+  isActive: 0
+  isSubScene: 0
