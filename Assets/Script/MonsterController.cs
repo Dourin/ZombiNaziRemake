@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class MonsterController : MonoBehaviour
 {
     public GameObject player;
- 
+    
     public MeleeWeapon meleeWeapon;
+
+    public GameManager gameManager;
  
     //Agent de Navigation
     NavMeshAgent navMeshAgent;
@@ -128,7 +130,7 @@ public class MonsterController : MonoBehaviour
     }
  
     public void Defeated()
-    {
+    {   gameManager.enemiesAlive--;
         //Réinitialise les paramètres de l'animator
         ResetAnimation();
         //L'action est maintenant "Defeated"  
