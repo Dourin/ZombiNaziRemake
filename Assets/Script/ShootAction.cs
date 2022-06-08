@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
  
@@ -30,9 +31,24 @@ public class ShootAction : MonoBehaviour
     public AudioSource gunAS;
     
     // Effet sonore : tir de l'AK
-    public AudioClip shootAC; 
- 
- 
+    public AudioClip shootAC;
+
+    // Effet visuel : tir de l'AK
+    public ParticleSystem muzzleflash;
+
+    // Boucle pour jouer l'effet visuel une seule fois
+    IEnumerator WeaponEffects()
+    {
+        //commence l'effet visuel
+        muzzleflash.Play();
+
+        // Attend
+        yield return new WaitForSeconds(0.2f);
+
+        // Termine l'effet visuel
+        muzzleflash.Stop();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,9 +82,13 @@ public class ShootAction : MonoBehaviour
             
             // Joue une fois l'effet sonore attribué à shootAC
             gunAS.PlayOneShot(shootAC);
- 
+
+            // Appel la boucle qui joue une fois l'effet visuel de l'arme
+            StartCoroutine(WeaponEffects());
+
+
             //On va lancer un rayon invisible qui simulera les balles du gun
- 
+
             //Crée un vecteur au centre de la vue de la caméra
             Vector3 rayOrigin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
  
