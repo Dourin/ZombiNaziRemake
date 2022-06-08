@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] spawnPoints;
 
     public GameObject enemyPrefab;
+    public GameObject enemyPrefab2;
 
     public GameObject pauseMenu;
 
@@ -48,6 +49,15 @@ public class GameManager : MonoBehaviour {
             GameObject enemySpawned = Instantiate(enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
             enemySpawned.GetComponent<MonsterController>().gameManager = GetComponent<GameManager>();
             enemiesAlive++;
+        }
+        if(round%5==0){
+            for (int ii = 0; ii < round*5; ii++) {
+                GameObject spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+                GameObject enemySpawned = Instantiate(enemyPrefab2, spawnPoint.transform.position, Quaternion.identity);
+                enemySpawned.GetComponent<MonsterController>().gameManager = GetComponent<GameManager>();
+                enemiesAlive++;
+            }
         }
     }
 

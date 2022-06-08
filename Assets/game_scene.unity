@@ -360,7 +360,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1815044076626027324, guid: 79319aa92d50e2b4f9e178d289273e10, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1815044076626027324, guid: 79319aa92d50e2b4f9e178d289273e10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -545,6 +545,7 @@ MonoBehaviour:
   - {fileID: 1040715474}
   - {fileID: 2056963290}
   enemyPrefab: {fileID: 7831663638797273702, guid: eeea1d993e9a2dc4bb6b470c3058702e, type: 3}
+  enemyPrefab2: {fileID: 7831663638797273702, guid: b84e9a769580e4046adda51de6f95af8, type: 3}
   pauseMenu: {fileID: 1287849350}
   roundNum: {fileID: 377627450}
   roundsSurvived: {fileID: 0}
@@ -578,14 +579,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.254717, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -4711,7 +4712,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033049892}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4783,9 +4784,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 264847826}
-  walkingSpeed: 7.5
-  runningSpeed: 15
-  jumpSpeed: 8
+  walkingSpeed: 4
+  runningSpeed: 8
+  jumpSpeed: 3
   rotationSpeed: 2
   rotationXLimit: 45
 --- !u!114 &1033049898
